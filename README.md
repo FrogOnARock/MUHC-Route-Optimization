@@ -18,22 +18,6 @@ This project tackles **route optimization** for MUHC (healthcare logistics conte
 
 ---
 
-## Project outline (from notebook headings)
-### Group 2
-### Imported Libraries
-### Our Business Problem and Data
-### Parameters, Indices, and Auxiliary Variables
-#### 1. Truck Capacity:
-#### 2. Demand:
-#### 3. Distance and Time:
-#### 4. Objective Function Weights:
-#### 5. Priority:
-#### 6. Other
-### The model
-### Decision variables
-
----
-
 ## Environment & setup
 
 Use **Python ≥ 3.10** (recommended). Install detected dependencies:
@@ -78,25 +62,6 @@ Below is a generic checklist matched to typical code blocks you’ll find:
 - **Model formulation**: decision variables for visit/sequence, flow constraints, capacity/time-window constraints.
 - **Solving**: OR-Tools (RoutingModel/CP-SAT) or PuLP (MILP with CBC/Gurobi).
 - **Post-processing**: sequence decoding, KPIs, exporting CSV/GeoJSON, plotting.
-
----
-
-## Reproducibility tips
-
-- Fix random seeds where supported by the solver.
-- Persist a local **distance matrix cache** to avoid recomputation.
-- Validate feasibility with a small subset before scaling to all stops.
-- Start with relaxed constraints (no time windows), then add complexity gradually.
-
----
-
-## Extending the project
-
-- Add **multi-depot** and **pickup & delivery** constraints.
-- Use **cluster-first route-second** heuristics (e.g., K-Means → nearest-neighbor sequencing) as warm-starts.
-- Incorporate **real travel times** (traffic profiles) and **service times** per stop.
-- Build an exportable **turn-by-turn** itinerary per route (CSV/PDF).
-- Add a small **FastAPI** service to request routes via an API.
 
 ---
 
